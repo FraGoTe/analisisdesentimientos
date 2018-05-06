@@ -74,7 +74,7 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
   return(list_df)
 }
 
-dataAnalisis <- function(file, pageTitle, removeStopWords) {
+dataAnalisis <- function(file, pageTitle) {
   # Extracción de la Data
   df <- read.csv(file=file, header=TRUE, encoding = "UTF-8", sep = "|") 
   df$Resumen[]
@@ -254,10 +254,10 @@ dataAnalisis <- function(file, pageTitle, removeStopWords) {
   quake_clean <- tm_map(quake_clean, removeWords, stopwords("spanish"))
   quake_clean <- tm_map(quake_clean, removeNumbers)
   quake_clean <- tm_map(quake_clean, stripWhitespace)
-  quake_clean <- tm_map(quake_clean, removeWords, removeStopWords)#removing search words
+  quake_clean <- tm_map(quake_clean, removeWords, c('toledo', 'alan', 'fujimori','ppk', 'pedro', 'pablo', 'acuña', 'kuczynski', 'keiko', 'garcía', 'césar'))#removing search words
   
   wordcloud(quake_clean, random.order=F,max.words=80, col=rainbow(50), scale=c(4,0.5))
 }
 
 # main
-dataAnalisis("PPK.csv", pageTitle = "PPK", removeStopWords = c('toledo', 'alan', 'fujimori','ppk', 'pedro', 'pablo', 'acuña', 'kuczynski', 'keiko', 'garcía', 'césar'))
+dataAnalisis("PPK.csv", pageTitle = "PPK")
