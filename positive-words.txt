@@ -270,6 +270,7 @@ bien-redondeado
 Bienvenido
 bondad
 bondadosamente
+bondadoso
 bonificaciones
 bonita
 bonito
@@ -357,17 +358,15 @@ comprensible
 comprensión
 compromiso
 con-agitación
-con-alegría
-con-entusiasmo
-con-ganancia
-con-prudencia
 con-agradecimiento
+con-alegría
 conceder
 concienzudo
 conciliador
 conciliar
 conciso
 conduce
+con-entusiasmo
 confiable
 confiablemente
 confiado
@@ -376,8 +375,10 @@ confianza
 confiar
 confidente
 confortable
+con-ganancia
 congratulatorio
 conmovedor
+con-prudencia
 consagrado
 consecuentemente
 consideración
@@ -431,6 +432,7 @@ defensor
 defensores
 deferencia
 deginificado
+del pueblo
 deleitarse
 deleite
 delgadita
@@ -1037,22 +1039,22 @@ maravillas
 maravillosamente
 maravilloso
 más-agudo
+más-cálido
 más-claro
 más-estable
 más-feliz
 más-fino
 más-firme
 más-fresco
+más-fuerte
 más-inteligente
 más-limpio
 más-rápido
+más-robusto
 más-simple
 más-suave
 más-tranquilo
 más-vendido
-más-cálido
-más-fuerte
-más-robusto
 me gusta
 mejor
 mejora
@@ -1407,6 +1409,9 @@ simplificado
 simplificando
 simplificar
 sin-cargas
+sinceramente
+sinceridad
+sincero
 sin-costura
 sin-daños
 sin-esfuerzo
@@ -1417,10 +1422,6 @@ sin-problemas
 sin-restricciones
 sin-rivalidad
 sin-vergüenza
-sinceramente
-sinceridad
-sincero
-sin-problemas
 slammin
 Smo
 sobresale

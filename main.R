@@ -84,14 +84,12 @@ dataAnalisis <- function(file, pageTitle) {
   # Análisis de Sentimientos
   # Word Database.R
   # Guardamos las palabras positivas y negativas en variables
-  pos.words = scan('positive-words.txt', what='character', comment.char=';')
-  neg.words = scan('negative-words.txt', what='character', comment.char=';')
-  
-  
+  pos.words = scan('positive-words.txt', what='character', comment.char=';', encoding = "UTF-8", fileEncoding = "latin1")
+  neg.words = scan('negative-words.txt', what='character', comment.char=';', encoding = "UTF-8", fileEncoding = "latin1")
+ 
   # Añadimos palabras negativas y postivas
-  pos.words=c(pos.words)
+  pos.words = c(pos.words)
   neg.words = c(neg.words)
-  
   result = score.sentiment(resumen, pos.words, neg.words)
   head(result)
   # Creando una copia del resultado del data frame
@@ -118,6 +116,7 @@ dataAnalisis <- function(file, pageTitle) {
   table1 = data.frame(Text=result[[1]]$text, Score=qq1)
   table2 = data.frame(Text=result[[2]]$text, Score=qq2)
   table3 = data.frame(Text=result[[3]]$text, Score=qq3)
+ 
   # Convertimos todo en un solo dataframe
   table_final = data.frame(Text=table1$Text, Score=table1$value, Positive=table2$value, Negative=table3$value)
   
@@ -159,7 +158,6 @@ dataAnalisis <- function(file, pageTitle) {
   par(oma=c(0,0,2,0))# all sides have 3 lines of space
   par(mar=c(5,4,4,2) + 0.1)
   par(mfrow=c(2,3))
-  
   
   #Histogram
   hist(table_final$Positive, col=rainbow(10), main = "Histograma de S. Positivos", xlab = "")
@@ -251,13 +249,20 @@ dataAnalisis <- function(file, pageTitle) {
   #clean text
   quake_clean <- tm_map(quake_corpus, removePunctuation)
   quake_clean <- tm_map(quake_clean, content_transformer(tolower))
-  quake_clean <- tm_map(quake_clean, removeWords, stopwords("spanish"))
+  quake_clean <- tm_map(quake_clean, removeWords, stopwords(kind = "es"))
   quake_clean <- tm_map(quake_clean, removeNumbers)
   quake_clean <- tm_map(quake_clean, stripWhitespace)
-  quake_clean <- tm_map(quake_clean, removeWords, c('toledo', 'alan', 'fujimori','ppk', 'pedro', 'pablo', 'acuña', 'kuczynski', 'keiko', 'garcía', 'césar'))#removing search words
-  
-  wordcloud(quake_clean, random.order=F,max.words=80, col=rainbow(50), scale=c(4,0.5))
+  quake_clean <- tm_map(quake_clean, removeWords, c('araáoz', 'candidatos', 'candidato', 'alejandro', 'susana', 'alfredo', 'barnechea', 'ántero', 'floresaráoz','daniel', 'villarán', 'urresti', 'toledo', 'alan', 'fujimori','ppk', 'pedro', 'pablo', 'acuña', 'kuczynski', 'keiko', 'garcía', 'césar'))#removing search words
+#  openGraph()
+  wordcloud(quake_clean, random.order=F,max.words=80, col=rainbow(50))
 }
 
 # main
-dataAnalisis("PPK.csv", pageTitle = "PPK")
+dataAnalisis("PPK.csv", pageTitle = "Pedro Pablo Kuczynski")
+#dataAnalisis("AlanGarcia.csv", pageTitle = "Alan Garcia")
+#dataAnalisis("AlejandroToledo.csv", pageTitle = "Alejandro Toledo")
+#dataAnalisis("AlfredoBarnechea.csv", pageTitle = "Alfredo Barnechea")
+#dataAnalisis("AnteroFlores.csv", pageTitle = "Antero Flores")
+dataAnalisis("CesarAcuña.csv", pageTitle = "Cesar Acuña")
+#dataAnalisis("KeikoFujimori.csv", pageTitle = "Keiko Fujimori")
+#dataAnalisis("DanielUrresti.csv", pageTitle = "Daniel Urresti")
